@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Registro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Veterinaria Monaco</h1>
+        <h2>Editar Registro</h2>
+        <form method="POST" action="{{ url_for('editar', id=elemento.id) }}">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.nombre_cliente.label(class="form-control-label") }}
+                {{ form.nombre_cliente(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.cedula_cliente.label(class="form-control-label") }}
+                {{ form.cedula_cliente(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.telefono_cliente.label(class="form-control-label") }}
+                {{ form.telefono_cliente(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.nombre_mascota.label(class="form-control-label") }}
+                {{ form.nombre_mascota(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.tipo_mascota.label(class="form-control-label") }}
+                {{ form.tipo_mascota(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.raza.label(class="form-control-label") }}
+                {{ form.raza(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.edad.label(class="form-control-label") }}
+                {{ form.edad(class="form-control") }}
+            </div>
+            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar

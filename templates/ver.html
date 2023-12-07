@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Registro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalles del Registro</h1>
+        <ul>
+            <li><strong>Cliente:</strong> {{ elemento.nombre_cliente }}</li>
+            <li><strong>Cédula Cliente:</strong> {{ elemento.cedula_cliente }}</li>
+            <li><strong>Teléfono Cliente:</strong> {{ elemento.telefono_cliente }}</li>
+            <li><strong>Mascota:</strong> {{ elemento.nombre_mascota }}</li>
+            <li><strong>Tipo Mascota:</strong> {{ elemento.tipo_mascota }}</li>
+            <li><strong>Raza:</strong> {{ elemento.raza }}</li>
+            <li><strong>Edad:</strong> {{ elemento.edad }}</li>
+        </ul>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Volver</a>
+    </div>
+</body>
+</html>

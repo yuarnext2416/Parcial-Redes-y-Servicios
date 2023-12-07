@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria Monaco</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐾 Veterinaria Monaco 🐾</h1>
+            <h2>Registro de Clientes y Mascotas</h2>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Cédula Cliente</th>
+                    <th>Teléfono Cliente</th>
+                    <th>Mascota</th>
+                    <th>Tipo Mascota</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.nombre_cliente }}</td>
+                        <td>{{ item.cedula_cliente }}</td>
+                        <td>{{ item.telefono_cliente }}</td>
+                        <td>{{ item.nombre_mascota }}</td>
+                        <td>{{ item.tipo_mascota }}</td>
+                        <td>{{ item.raza }}</td>
+                        <td>{{ item.edad }}</td>
+                        <td>
+                            <a href="{{ url_for('ver', id=item.id) }}" class="btn btn-info btn-sm">Ver</a>
+                            <a href="{{ url_for('editar', id=item.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{{ url_for('eliminar', id=item.id) }}" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('agregar') }}" class="btn btn-success">Agregar Nuevo Registro</a>
+        <div class="footer">
+            <p>© 2023 Veterinaria Monaco. Todos los derechos reservados.</p>
+            <p>By Yubran Martinez</p>
+        </div>
+    </div>
+</body>
+</html>
